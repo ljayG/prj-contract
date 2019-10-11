@@ -1,0 +1,259 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin:0;padding:0;/*vertical-align:baseline;*/ box-sizing:border-box;}
+
+body, th, td, input, select, textarea, button{font-size: $main-width; font-family: $fontFamily; color:$color-default; line-height: 1.5; font-weight:500; letter-spacing: -0.5px;}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{display: block}
+
+body{-webkit-text-size-adjust: none}
+h1, h2, h3, h4, h5, h6{font-size: 1rem; font-weight: 500}
+ol, ul, li ,dl, dt, dd{list-style:none outside none; padding:0; margin:0}
+hr{display:none}
+span{margin:0; padding:0; outline:0}
+fieldset, img, table, caption, tbody, tfoot, thead, tr, th, td, button, hr{border:0}
+address, caption, cite, code, dfn, em, strong, th, var{font-style: normal}
+blockquote, q{quotes:none}
+blockquote:before, blockquote:after, q:before, q:after{content: ''; content: none}
+table{width: $main-width; border-collapse:separate; border-spacing:0;}
+img{vertical-align:middle}
+a{color: $color-default; text-decoration:none; cursor:pointer}
+a:active, a:hover{text-decoration: none}
+input, select, label{vertical-align:middle}
+input, select, textarea, button{font-size: 1rem; vertical-align: middle; padding: 0; margin: 0}
+input, textarea{font-family: $fontFamily; /*border-radius: 0; appearance:none; -webkit-appearance:none;*/}
+button,input[type='text'],input[type='password'],input[type='tel'],input[type='num'],input[type='button'],input[type='submit'],input[type='reset'],input[type='file']{-webkit-appearance:button; border-radius:0}
+input[type='search']::-webkit-search-cancel-button{-webkit-appearance:none}
+textarea{resize:none; box-sizing:border-box}
+button{border: 0 none; background-color: transparent; cursor: pointer; vertical-align: middle}
+b, strong{font-weight:700}
+input[type="text"], input[type="password"], input[type="number"], input[type="tel"], input[type="email"], input[type="search"]{box-sizing: border-box}
+select{position:relative; display: block; border: 0 none; -webkit-appearance:none; -moz-appearance:none;-o-appearance:none; appearance:none; box-sizing: border-box; padding-left: 3px; background: transparent; z-index:9999;}
+select::-ms-expand {display: none}
+select option{border: 0 none}
+sub{vertical-align: baseline; font-size: 0.875em;}
+strong sub{font-weight: 700;}
+
+/* ie Control */
+input::-ms-clear {display:none}
+
+::-webkit-input-placeholder { /* Edge */
+  color: $grayLight3;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $grayLight3;
+}
+
+::placeholder {
+  color: $grayLight3;
+}
+
+/* SkipNavigation */
+#skipNavigation{
+    width:$main-width;
+	position:absolute;
+	top:-200px;
+	left:0;
+	margin:0 auto;
+	z-index:9999;
+
+    a{
+        color:$white;
+        display:block;
+        height:35px;
+        background-color:#1c80cc;
+        text-align:center;
+
+        &:active, &:focus{
+            width:$main-width;
+            color:$white;
+            position:absolute;
+            left:0;
+            top:200px;
+            background:#1c80cc;
+            line-height:35px;
+            text-align:center;
+            border-bottom:1px solid #dbdbdb;
+            font-size:16px;
+        }
+    }
+}
+
+.clearfix{
+    @include clearfix;
+}
+
+caption, legend, .blind{
+    @include blind;
+}
+
+.disinb{
+    @include disinBlock;
+}
+
+.img-onlymobile{
+    display: none;
+
+    @include mq('onlyMobile'){
+        display: inline;
+    }
+}
+
+.img-tablet-gt{
+    display: none;
+
+    @include mq('tablet'){
+        display: inline;
+    }
+}
+
+.maximg{
+    max-width: 100%;
+}
+
+@include mq('tablet'){
+    .block-onlyMobile{
+        display: none;
+    }
+}
+
+@include mq('deskTop'){
+    .block-tablet-lt{
+        display: none;
+    }
+}
+
+.block-tablet-gt{
+    display: none;
+
+    @include mq('tablet'){
+        display: block;
+    }
+}
+
+.block-desktop-gt{
+    display: none;
+
+    @include mq('deskTop'){
+        display: block;
+    }
+}
+
+.mbr{
+    display: block;
+
+    @include mq('deskTop'){
+        display: inline;
+    }
+}
+
+.dbr{
+    display: inline;
+
+    @include mq('deskTop'){
+        display: block;
+    }
+}
+
+.noscroll{
+    overflow: hidden;
+}
+
+.noshow{
+    display: none;
+}
+
+.hr{
+    background-color: $gray4;
+    position: relative;
+    height: 1px;
+    margin: 25px 0;
+    line-height: 1px;
+    font-size: 0;
+
+    &::after{
+        background-color: $gray4;
+        content: '';
+        display: block;
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        top: 50%;
+        left: 50%;
+        margin: -3.5px 0 0 -3.5px;
+        transform: rotate(45deg);
+        z-index: 2;
+    }
+
+    @include mq('deskTop'){
+        margin: 45px 0 40px;
+    }
+}
+
+.mgt5{
+    @include marTop(5);
+}
+.mgt10{
+    @include marTop(10);
+}
+.mgt15{
+    @include marTop(15);
+}
+.mgt20{
+    @include marTop(20);
+}
+.mgt30{
+    @include marTop(30);
+}
+.mgt35{
+    @include marTop(35);
+}
+.mgt40{
+    @include marTop(40);
+}
+.mgt55{
+    @include marTop(55);
+}
+.mgt60{
+    @include marTop(60);
+}
+.mgt70{
+    @include marTop(70);
+}
+.mgb10{
+    @include marBtm(10);
+}
+.mgb16{
+    @include marBtm(16);
+}
+.mgb20{
+    @include marBtm(20);
+}
+.mgb25{
+    @include marBtm(25);
+}
+.mgb35{
+    @include marBtm(35);
+}
+.mgb40{
+    @include marBtm(40);
+}
+.mgb55{
+    @include marBtm(55);
+}
+.mgb60{
+    @include marBtm(60);
+}
+.mgb65{
+    @include marBtm(65);
+}
+.mgb80{
+    @include marBtm(80);
+}
+.mgr5{
+    margin-right: 5px;
+}
+
+.bggray{
+    background-color: $grayLight2;
+}

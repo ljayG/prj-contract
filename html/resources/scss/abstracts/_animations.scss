@@ -1,0 +1,38 @@
+@keyframes btarrowmove {
+	0% {transform: translateX(0);}
+	50% {transform: translateX(4px);}
+	100% {transform: translateX(0);}
+}
+
+@keyframes scrollBounce{
+    0%{transform: translate(-50%, 0);}
+    50%{transform: translate(-50%, 10px);}
+    100%{transform: translate(-50%, 0);}
+}
+
+@keyframes animGrid {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleout{
+    0%{
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    100%{
+      opacity: 0;
+      transform: scale(1.5);
+    }
+}

@@ -1,0 +1,220 @@
+.btn_wrap{
+    @include clearfix;
+
+    .col-1{
+        text-align: center;
+
+        .btn{
+            display: inline-block;
+
+            @include mq("tablet"){
+                @include disinBlock2;
+                width: auto;
+            }
+
+            &.full{
+                @include mq("onlyMobile"){
+                    display: block;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+            }
+        }
+        
+    }
+
+    .col-2{
+        text-align: center;
+
+        .btn{
+            @include disinBlock2;
+            width: (314/670)*100%;
+
+            & + .btn{
+                margin-left: 2%;
+            }
+
+            @include mq("tablet"){
+                width: auto;
+
+                & + .btn{
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
+    .dwline{
+        .btn.mfull + .btn.mfull{
+            margin-top: 20px;
+        }
+    }
+
+    &.brd_t1{
+        border-top: 1px solid $gray;
+        padding-top: 30px;
+        margin-top: 30px;
+    }
+}
+
+.btn{
+    @include fsm18;
+    display: block;
+    cursor: pointer;
+    padding: 12px 10px;
+    text-align: center;
+    letter-spacing: 0;
+    border-width: 1px;
+    border-style: solid;
+
+    &.small, &.small2{
+        @include fsm16;
+        padding: 9px 5px;
+    }
+    
+    &.square{
+        width: 40px;
+        height: 40px;
+        padding: 0;
+    }
+    
+    @include mq('onlyMobile'){
+        &.mfull{
+            width: 100%;
+        }
+    }
+
+    &.btc_primary{
+        color: $white;
+        background-color: $color-primary;
+        border-color: $color-primary;
+    }
+
+    &.btc_white{
+        color: $black;
+        background-color: $white;
+        border-color: $black;
+    }
+
+    &.btc_gray{
+        color: $white;
+        background-color: $gray2;
+        border-color: $gray2;
+    }
+    &.btc_gray2{
+        color: $black;
+        background-color: $white;
+        border-color: $gray4;
+    }
+
+    &.btc_navy{
+        color: $white;
+        background-color: $navy;
+        border-color: $navy;
+    }
+
+    & > span{
+        @include disinBlock;
+        line-height: 1;
+    }
+
+    & > .btnico{
+        @include disinBlock;
+        margin-right: 10px;
+        line-height: 1;
+    }
+
+    @include mq("tablet"){
+        padding: 15px 40px;
+    }
+
+    & > span.mobilenone{
+        display: none;
+    }
+}
+
+@include mq("tablet"){
+    .btn_wrap{
+        
+        .col-1.alignleft, .col-2.alignleft{
+            text-align: left;
+        }
+
+        .dwline{
+            text-align: left;
+
+            .btn.mfull{
+                @include disinBlock;
+                margin: 0 10px 10px 0;
+
+                & + .btn.mfull{
+                    margin-top: 0;
+                }
+            }
+        }
+
+        .btn{
+
+            &.square{
+                width: 55px;
+                height: 55px;
+            }
+
+            &.small{
+                padding: 15px 30px;
+            }
+
+            &.small2{
+                padding: 11px 20px;
+            }
+
+            &.medium{
+                min-width: 200px;
+            }
+        }
+
+        &.brd_t1{
+            padding-top: 40px;
+            margin-top: 40px;
+        }
+    }
+
+    .btn{
+        & > span + span{
+            margin-left: 5px;
+        }
+
+        & > span.mobilenone{
+            display: inline-block;
+        }
+    }
+}
+
+@include mq("deskTop"){
+    .btn{
+        @include transition(0.5s);
+
+        &.btc_primary:hover{
+            background-color: #006fb6;
+            border-color: #006fb6;
+        }
+
+        &.btc_white:hover{
+            color: $white;
+            background-color: $black;
+        }
+
+        &.btc_gray:hover{
+            background-color: #94989b;
+            border-color: #94989b;
+        }
+        &.btc_gray2:hover{
+            background-color: $gray4;
+        }
+
+        &.btc_navy:hover{
+            background-color: #2c3646;
+            border-color: #2c3646;
+        }
+    }
+}

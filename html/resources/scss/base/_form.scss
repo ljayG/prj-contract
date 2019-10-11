@@ -1,0 +1,271 @@
+.formbox{
+
+    .checkbox{
+        position: relative;
+
+        input[type="checkbox"]{
+            @include formindent;
+
+            &:focus+label:before{
+                outline: 1px solid $color-primary;
+            }
+
+            & + label{
+                @include disinBlock;
+                @include fsm16;
+                position: relative;
+                cursor: pointer;
+                line-height:1;
+
+                &:before{
+                    @include disinBlock;
+                    @include transition(0.3s);
+                    background-color: $gray5;
+                    background-image: url('../images/icon/check.png');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 11px auto;
+                    content: '';
+                    width: 20px;
+                    height: 20px;
+                    line-height: 20px;
+                    margin: -2px 9px 0 0;
+                    text-align: center;
+                    border-radius: 50%;
+                    z-index: 2;
+                }
+            }
+
+            &:checked + label:before{
+                background-color: $color-primary;
+            }
+
+            &:checked + label:after{
+                @include disinBlock;
+                background-color: $color-primary;
+                content:"";
+                position: absolute;
+                width: 20px;
+                height:20px;
+                left: 0;
+                top: 0;
+                border-radius:50%;
+                animation-name: scaleout;
+                animation-duration: 0.3s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+                z-index: 1;
+                
+            }
+        }
+    }
+}
+
+.inputbox{
+    @include marTop(32);
+
+    label{
+        @include disinBlock;
+        @include fsm18;
+        @include marBtm(10);
+        color: $black;
+        position: relative;
+    }
+
+    .inputwrap{
+        background-color: $white;
+        border: 1px solid $gray;
+        position: relative;
+        
+        input[type='text'], input[type='password']{
+            @include fsm16;
+            color: $black;
+            width: 100%;
+            height: 44px;
+            padding: 6px 35px 6px 10px;
+            line-height: 31px;
+            border: none;
+        }
+
+        textarea{
+            @include fsm16;
+            color: $black;
+            width: 100%;
+            padding: 6px 10px;
+            line-height: 1.8;
+            border: none;
+        }
+
+        .btinp_delete{
+            @include posiCenter(v);
+            right: 1px;
+            z-index: 2;
+        }
+    }
+}
+
+.select_box {
+    position: relative;
+    float: left;
+    width: (180/670)*100%;
+    z-index: 2;
+    select{
+        width: 100%;
+        height: 45px;
+        line-height: 43px;
+        color: $black;
+        font-size: 0.938rem;
+        border: 1px solid $grayLight;
+        border-right: 0 none;
+        box-sizing: border-box;
+        padding-left: 10px;
+    }
+    &::after{
+        content: '';
+        @include transition(0.3s);
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        width: 10px;
+        height: 6px;
+        background: url('../images/icon/icon_select.png') no-repeat center;
+        margin-top: -3px;
+    }
+    &.open::after{
+        transform: rotate(-180deg);
+    }
+}
+
+.required{
+    color: $color-primary;
+
+    &::after{
+        @include blind();
+        content: '필수 입력사항';
+    }
+}
+
+.answerwrap{
+    .answerbox{
+        @include fsm16;
+        color: $black;
+        background-color: $grayLight2;
+        padding: 15px;
+        line-height: 2;
+    }
+}
+
+.frmsrch{
+    @include transition(0.3s);
+    border: 1px solid $gray;
+    background-color: $white;
+    position: relative;
+    padding-right: 44px;
+
+    input[type='text']{
+        width: 100%;
+        height: 43px;
+        line-height: 41px;
+        border: 0 none;
+        padding-left: 15px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .btn_sch{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 44px;
+        height: 44px;
+
+        & > span{
+            @include ir;
+            display: block;
+            margin: auto;
+            width: 15px;
+            height: 15px;
+            background: url('../images/icon/search_black.png');
+            background-size: contain;
+        }
+    }
+
+    &.onfocus{
+        border-color: $color-primary;
+    }
+}
+
+@include mq('deskTop'){
+    .formbox{
+
+        .checkbox input[type="checkbox"]{
+            & + label{
+
+                &:before{
+                    background-size: 14px auto;
+                    width: 26px;
+                    height: 26px;
+                    line-height: 26px;
+                    margin-top: -7px;
+                }
+            }
+
+            &:checked + label:after{
+                width: 26px;
+                height: 26px;
+            }
+        }
+    }
+
+    .inputbox{
+
+        .inputwrap{
+
+            input[type='text'], input[type='password']{
+                height: 51px;
+                padding: 10px 55px 10px 20px;
+                line-height: 30px;
+            }
+
+            textarea{
+                padding: 10px 20px;
+            }
+
+            .btinp_delete{
+                right: 15px;
+            }
+        }
+    }
+
+    .select_box{
+        select{
+            font-size: 1rem;
+            border: 0 none;
+        }
+        &::after{
+            right: 20px;
+        }
+    }
+
+    .answerwrap .answerbox{
+        padding: 20px;
+    }
+
+    .frmsrch{
+
+        input[type='text']{
+            height: 53px;
+            line-height: 51px;
+            padding-left: 20px;
+        }
+        .btn_sch{
+            height: 53px;
+
+            & > span{
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}

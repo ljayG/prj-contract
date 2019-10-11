@@ -1,0 +1,91 @@
+.isico{
+    @include ir;
+    display: block;
+
+    &.isi_list{
+        @include bgicon(13, 13, 18, 18, '../images/icon/list.png');
+    }
+    &.isi_del{
+        @include bgicon(20, 20, 28, 28, '../images/icon/del.png');
+    }
+    &.isi_download{
+        @include bgicon(8, 13, 12, 17, '../images/icon/download.png');
+    }
+    &.isi_more{
+        @include bgicon(14, 14, 14, 14, '../images/icon/plus.png');
+    }
+    &.isi_plus{
+        @include bgicon(14, 14, 14, 14, '../images/icon/plus2.png');
+    }
+    &.isi_phone{
+        @include bgicon(13, 13, 16, 16, '../images/icon/phone.png');
+    }
+    &.isi_notice{
+        @include bgicon(18, 18, 23, 23, '../images/icon/exclamation.png');
+    }
+    &.isi_question{
+        @include bgicon(14, 16, 20, 22, '../images/icon/question.png');
+    }
+    &.isi_search{
+        @include bgicon(18, 18, 24, 24, '../images/icon/search.png');
+    }
+    &.isi_img{
+        @include bgicon(16, 14, 19, 17, '../images/icon/icon_img.png');
+    }
+    &.isi_xsl{
+        @include bgicon(16, 16, 20, 20, '../images/icon/icon_xsl.png');
+    }
+}
+
+.comiround{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    &::after{
+        @include blind;
+        display: block;
+    }
+
+    &.comit01{
+        background-color: $yellow2;
+
+        &::after{
+            content: '사회보장위원회 위원 겸직';
+        }
+    }
+
+    &.comit02{
+        background-color: $skyBule2;
+
+        &::after{
+            content: '실무위원회 위원 겸직';
+        }
+    }
+
+    @at-root .aftercont_none &::after{
+        display: none;
+    }
+}
+
+@include mq("deskTop"){
+
+    .btn.btc_white:hover{
+
+        .isico{
+
+            &.isi_list{
+                background-image: url('../images/icon/list_over.png');
+            }
+
+            &.isi_more{
+                background-image: url('../images/icon/plus_over.png');
+            }
+
+            &.isi_download{
+                background-image: url('../images/icon/download_over.png');
+            }
+        }
+    }
+}
